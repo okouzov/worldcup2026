@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIFA World Cup 26 — Canada · Mexico · USA | Световно първенство 2026</title>
+<meta name="description" content="Interactive bilingual (EN/BG) guide to the 2026 FIFA World Cup — hosts, venues, all 48 teams, groups, results and records. Data from Wikipedia.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://flagcdn.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:ital,wght@0,400;0,500;0,700;0,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">26</span>
+      <span class="brand-text">WORLD&nbsp;CUP</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#overview" data-i18n="nav_overview">Overview</a>
+      <a href="#venues" data-i18n="nav_venues">Venues</a>
+      <a href="#teams" data-i18n="nav_teams">Teams</a>
+      <a href="#groups" data-i18n="nav_groups">Groups</a>
+      <a href="#knockout" data-i18n="nav_knockout">Knockout</a>
+      <a href="#records" data-i18n="nav_records">Records</a>
+      <a href="#culture" data-i18n="nav_culture">Culture</a>
+    </nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button id="btnEN" class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button id="btnBG" class="lang-btn" onclick="setLang('bg')">БГ</button>
+    </div>
+  </div>
+  <div class="tribar"></div>
+</header>
+
+<section class="hero">
+  <div class="hero-photo" role="img" aria-label="Estadio Azteca aerial view"></div>
+  <div class="hero-shade"></div>
+  <div class="hero-26" aria-hidden="true">26</div>
+  <div class="hero-inner">
+    <p class="kicker" data-i18n="hero_kicker">CANADA · MEXICO · UNITED STATES</p>
+    <h1 class="hero-title" data-i18n="hero_title">FIFA WORLD CUP 26</h1>
+    <p class="hero-sub" data-i18n="hero_sub"></p>
+
+    <div class="hero-hosts">
+      <span class="host-chip chip-ca"><img src="https://flagcdn.com/w40/ca.png" alt=""><span data-i18n="host_ca">Canada</span></span>
+      <span class="host-chip chip-mx"><img src="https://flagcdn.com/w40/mx.png" alt=""><span data-i18n="host_mx">Mexico</span></span>
+      <span class="host-chip chip-us"><img src="https://flagcdn.com/w40/us.png" alt=""><span data-i18n="host_us">USA</span></span>
+    </div>
+
+    <div class="countdown" id="countdown">
+      <p class="cd-label" data-i18n="cd_label"></p>
+      <div class="cd-boxes">
+        <div class="cd-box"><span id="cdD">--</span><small data-i18n="cd_days">days</small></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-box"><span id="cdH">--</span><small data-i18n="cd_hours">hours</small></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-box"><span id="cdM">--</span><small data-i18n="cd_min">min</small></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-box"><span id="cdS">--</span><small data-i18n="cd_sec">sec</small></div>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hs"><b data-count="48">0</b><span data-i18n="hs_teams">teams</span></div>
+      <div class="hs"><b data-count="3">0</b><span data-i18n="hs_hosts">host nations</span></div>
+      <div class="hs"><b data-count="16">0</b><span data-i18n="hs_cities">host cities</span></div>
+      <div class="hs"><b data-count="104">0</b><span data-i18n="hs_matches">matches</span></div>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#overview" aria-label="Scroll down">▾</a>
+</section>
+
+<main>
+
+<section id="overview" class="section">
+  <div class="section-head">
+    <p class="sec-kicker" data-i18n="sk_overview">THE TOURNAMENT</p>
+    <h2 data-i18n="ov_title">Tournament Overview</h2>
+    <p class="section-lead" data-i18n="ov_lead"></p>
+  </div>
+  <div class="cards-3" id="factCards"></div>
+
+  <h3 class="subhead" data-i18n="ov_format">Competition format</h3>
+  <p class="body-text" data-i18n="ov_format_text"></p>
+
+  <h3 class="subhead" data-i18n="ov_rules">What's new in 2026</h3>
+  <div class="cards-3" id="ruleCards"></div>
+</section>
+
+<section id="venues" class="section alt">
+  <div class="section-head">
+    <p class="sec-kicker" data-i18n="sk_venues">16 STADIUMS · 3 NATIONS</p>
+    <h2 data-i18n="ve_title">Host Cities &amp; Stadiums</h2>
+    <p class="section-lead" data-i18n="ve_lead"></p>
+  </div>
+  <div class="filter-row" id="venueFilters"></div>
+  <div class="venue-grid" id="venueGrid"></div>
+</section>
+
+<section id="teams" class="section">
+  <div class="section-head">
+    <p class="sec-kicker" data-i18n="sk_teams">A RECORD FIELD</p>
+    <h2 data-i18n="te_title">The 48 Teams</h2>
+    <p class="section-lead" data-i18n="te_lead"></p>
+  </div>
+  <div class="filter-row" id="confFilters"></div>
+  <input type="search" id="teamSearch" class="search" placeholder="Search a team…">
+  <div class="team-grid" id="teamGrid"></div>
+  <div class="legend" id="teamLegend"></div>
+</section>
+
+<section id="groups" class="section alt">
+  <div class="section-head">
+    <p class="sec-kicker" data-i18n="sk_groups">JUNE 11 – 27</p>
+    <h2 data-i18n="gr_title">Group Stage</h2>
+    <p class="section-lead" data-i18n="gr_lead"></p>
+  </div>
+  <div class="group-grid" id="groupGrid"></div>
+  <div class="legend">
+    <span><i class="dot dot-adv"></i><span data-i18n="gr_leg1">Advanced (top two)</span></span>
+    <span><i class="dot dot-third"></i><span data-i18n="gr_leg2">Advanced as best third</span></span>
+    <span><i class="dot dot-out"></i><span data-i18n="gr_leg3">Eliminated</span></span>
+  </div>
+</section>
+
+<section id="knockout" class="section">
+  <div class="section-head">
+    <p class="sec-kicker" data-i18n="sk_knockout">32 TEAMS · ONE TROPHY</p>
+    <h2 data-i18n="ko_title">Knockout Stage</h2>
+    <p class="section-lead" data-i18n="ko_lead"></p>
+  </div>
+  <div class="live-note" data-i18n="ko_note"></div>
+
+  <h3 class="subhead" data-i18n="ko_r32">Round of 32</h3>
+  <div class="match-grid" id="r32Grid"></div>
+
+  <h3 class="subhead" data-i18n="ko_r16">Round of 16</h3>
+  <div class="match-grid" id="r16Grid"></div>
+
+  <h3 class="subhead" data-i18n="ko_next">The road to the Final</h3>
+  <div class="road" id="roadGrid"></div>
+</section>
+
+<section id="records" class="section alt">
+  <div class="section-head">
+    <p class="sec-kicker" data-i18n="sk_records">HISTORY IN THE MAKING</p>
+    <h2 data-i18n="re_title">Stats, Records &amp; Prize Money</h2>
+  </div>
+  <div class="cards-3 stat-cards" id="statCards"></div>
+
+  <h3 class="subhead" data-i18n="re_scorers">Top goalscorers</h3>
+  <div class="scorers" id="scorerList"></div>
+
+  <h3 class="subhead" data-i18n="re_prize">Prize money</h3>
+  <div class="table-wrap">
+    <table class="prize-table" id="prizeTable"></table>
+  </div>
+</section>
+
+<section id="culture" class="section">
+  <div class="section-head">
+    <p class="sec-kicker" data-i18n="sk_culture">BEYOND THE PITCH</p>
+    <h2 data-i18n="cu_title">Symbols, Marketing &amp; Culture</h2>
+  </div>
+  <div class="cards-3" id="mascotCards"></div>
+  <div class="cards-2" id="cultureCards"></div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="tribar"></div>
+  <div class="footer-inner">
+    <p class="footer-brand"><span class="brand-mark">26</span></p>
+    <p data-i18n="ft_source"></p>
+    <p><a href="https://en.wikipedia.org/wiki/2026_FIFA_World_Cup" target="_blank" rel="noopener" data-i18n="ft_link"></a></p>
+    <p class="ft-small" data-i18n="ft_data"></p>
+    <p class="ft-small" data-i18n="ft_photos"></p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
