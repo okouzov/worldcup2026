@@ -26,6 +26,7 @@
       <a href="#teams" data-i18n="nav_teams">Teams</a>
       <a href="#groups" data-i18n="nav_groups">Groups</a>
       <a href="#knockout" data-i18n="nav_knockout">Knockout</a>
+      <a href="#final" data-i18n="nav_final">The Final</a>
       <a href="#records" data-i18n="nav_records">Records</a>
       <a href="#culture" data-i18n="nav_culture">Culture</a>
     </nav>
@@ -52,24 +53,18 @@
       <span class="host-chip chip-us"><img src="https://flagcdn.com/w40/us.png" alt=""><span data-i18n="host_us">USA</span></span>
     </div>
 
-    <div class="countdown" id="countdown">
-      <p class="cd-label" data-i18n="cd_label"></p>
-      <div class="cd-boxes">
-        <div class="cd-box"><span id="cdD">--</span><small data-i18n="cd_days">days</small></div>
-        <div class="cd-sep">:</div>
-        <div class="cd-box"><span id="cdH">--</span><small data-i18n="cd_hours">hours</small></div>
-        <div class="cd-sep">:</div>
-        <div class="cd-box"><span id="cdM">--</span><small data-i18n="cd_min">min</small></div>
-        <div class="cd-sep">:</div>
-        <div class="cd-box"><span id="cdS">--</span><small data-i18n="cd_sec">sec</small></div>
-      </div>
+    <div class="champ-banner">
+      <div class="cb-trophy">🏆</div>
+      <p class="cb-label" data-i18n="hb_label">WORLD CHAMPIONS</p>
+      <p class="cb-team"><img src="https://flagcdn.com/w80/es.png" alt="Spain" width="42"><span data-i18n="hb_team">SPAIN</span></p>
+      <p class="cb-score" data-i18n="hb_score"></p>
     </div>
 
     <div class="hero-stats">
       <div class="hs"><b data-count="48">0</b><span data-i18n="hs_teams">teams</span></div>
-      <div class="hs"><b data-count="3">0</b><span data-i18n="hs_hosts">host nations</span></div>
-      <div class="hs"><b data-count="16">0</b><span data-i18n="hs_cities">host cities</span></div>
       <div class="hs"><b data-count="104">0</b><span data-i18n="hs_matches">matches</span></div>
+      <div class="hs"><b data-count="308">0</b><span data-i18n="hs_goals">goals</span></div>
+      <div class="hs"><b data-count="16">0</b><span data-i18n="hs_cities">host cities</span></div>
     </div>
   </div>
   <a class="scroll-cue" href="#overview" aria-label="Scroll down">▾</a>
@@ -142,8 +137,42 @@
   <h3 class="subhead" data-i18n="ko_r16">Round of 16</h3>
   <div class="match-grid" id="r16Grid"></div>
 
-  <h3 class="subhead" data-i18n="ko_next">The road to the Final</h3>
-  <div class="road" id="roadGrid"></div>
+  <h3 class="subhead" data-i18n="ko_qf">Quarter-finals</h3>
+  <div class="match-grid" id="qfGrid"></div>
+
+  <h3 class="subhead" data-i18n="ko_sf">Semi-finals</h3>
+  <div class="match-grid" id="sfGrid"></div>
+
+  <h3 class="subhead" data-i18n="ko_fin">The medal matches</h3>
+  <div class="match-grid" id="finGrid"></div>
+</section>
+
+<section id="final" class="section champions">
+  <div class="section-head">
+    <p class="sec-kicker" data-i18n="sk_final">JULY 19 · METLIFE STADIUM</p>
+    <h2 data-i18n="ch_title">Spain — World Champions</h2>
+    <p class="section-lead" data-i18n="ch_lead"></p>
+  </div>
+
+  <figure class="champ-photo reveal">
+    <img src="assets/final/spain-match98-1.jpg" alt="Spanish fans at SoFi Stadium" loading="lazy">
+    <div class="cp-overlay">
+      <span class="cp-score"><img src="https://flagcdn.com/w40/es.png" alt=""> 1 : 0 <img src="https://flagcdn.com/w40/ar.png" alt=""></span>
+      <span class="cp-note" data-i18n="hb_label">WORLD CHAMPIONS</span>
+    </div>
+    <figcaption data-i18n="ch_photo_cap"></figcaption>
+  </figure>
+
+  <h3 class="subhead" data-i18n="ch_facts">How the final was won</h3>
+  <div class="cards-3" id="finalFactCards"></div>
+
+  <h3 class="subhead" data-i18n="aw_title">Individual awards</h3>
+  <div class="cards-3 awards" id="awardCards"></div>
+
+  <h3 class="subhead" data-i18n="rk_title">Final ranking — top 8</h3>
+  <div class="table-wrap">
+    <table class="rank-table" id="rankTable"></table>
+  </div>
 </section>
 
 <section id="records" class="section alt">

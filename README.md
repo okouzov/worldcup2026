@@ -2,7 +2,7 @@
 
 An unofficial, fully static fan website about the **2026 FIFA World Cup** (Canada · Mexico · United States), available in **English** and **Bulgarian** with a one-click language switch.
 
-Built from the Wikipedia article [2026 FIFA World Cup](https://en.wikipedia.org/wiki/2026_FIFA_World_Cup) (CC BY-SA 4.0). Results and statistics as of **July 5, 2026**.
+Built from the Wikipedia article [2026 FIFA World Cup](https://en.wikipedia.org/wiki/2026_FIFA_World_Cup) (CC BY-SA 4.0). **Complete final edition** — all 104 matches, awards and final ranking. Spain beat Argentina 1–0 (a.e.t.) in the final on July 19, 2026.
 
 ## Features
 - 📸 Real stadium photography for all 16 venues (Wikimedia Commons, stored locally in `assets/venues/`)
@@ -11,7 +11,7 @@ Built from the Wikipedia article [2026 FIFA World Cup](https://en.wikipedia.org/
 - 🏟️ All 16 host cities & stadiums, filterable by country
 - 🚩 All 48 teams with flags, searchable and filterable by confederation
 - 📊 All 12 group tables computed from the actual 72 match results
-- 🏆 Full Round of 32 and Round of 16 results, road to the Final
+- 🏆 Every knockout result — Round of 32 through the Final — plus a dedicated Champions section: how the final was won, all individual awards (Golden Ball/Boot/Glove), final top-8 ranking
 - 💰 Prize money, records, top scorers, mascots, match ball, culture
 - 📱 Fully responsive — works on desktop and mobile, no build step, no dependencies
 

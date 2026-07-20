@@ -83,7 +83,8 @@ function renderConfFilters() {
 const BADGE_LABEL = {
   host: { en: "HOST", bg: "ДОМАКИН", cls: "host" },
   deb: { en: "DEBUT", bg: "ДЕБЮТ", cls: "deb" },
-  champ: { en: "CHAMP", bg: "ШАМПИОН", cls: "champ" }
+  champ: { en: "🏆 CHAMPION", bg: "🏆 ШАМПИОН", cls: "champ" },
+  fin: { en: "FINALIST", bg: "ФИНАЛИСТ", cls: "fin" }
 };
 function renderTeams() {
   const q = teamQuery.toLowerCase();
@@ -106,7 +107,8 @@ function renderTeams() {
   $("teamLegend").innerHTML = `
     <span><span class="badge host">${BADGE_LABEL.host[LANG]}</span> ${t("leg_host")}</span>
     <span><span class="badge deb">${BADGE_LABEL.deb[LANG]}</span> ${t("leg_deb")}</span>
-    <span><span class="badge champ">${BADGE_LABEL.champ[LANG]}</span> ${t("leg_champ")}</span>`;
+    <span><span class="badge champ">${BADGE_LABEL.champ[LANG]}</span> ${t("leg_champ")}</span>
+    <span><span class="badge fin">${BADGE_LABEL.fin[LANG]}</span> ${t("leg_fin")}</span>`;
   observeReveals();
 }
 
@@ -166,7 +168,8 @@ function matchHTML(mt) {
     `<div class="mrow ${winner ? "winner" : ""}">
       <div class="mteam">${flag(TEAMS[id].flag, 20)} <span>${tName(id)}</span></div>
       <div class="ms">${played ? sc : "–"}</div></div>`;
-  return `<div class="match ${played ? "" : "upcoming"} reveal">
+  return `<div class="match ${played ? "" : "upcoming"} ${mt.final ? "final-match" : ""} reveal">
+    ${mt.final ? `<div class="final-tag">🏆</div>` : ""}
     ${row(mt.t1, mt.s1, played && mt.win === mt.t1)}
     ${row(mt.t2, mt.s2, played && mt.win === mt.t2)}
     ${mt.note ? `<div class="note">${mt.note[LANG]}</div>` : ""}
@@ -176,11 +179,27 @@ function matchHTML(mt) {
 function renderKnockout() {
   $("r32Grid").innerHTML = R32.map(matchHTML).join("");
   $("r16Grid").innerHTML = R16.map(matchHTML).join("");
-  $("roadGrid").innerHTML = `
-    <div class="stage reveal"><h5>${t("stage_qf")}</h5><p>${flag("ma",20)} ${t("qf1")} ${flag("fr",20)}</p><small>${t("qf_rest")}</small></div>
-    <div class="stage reveal"><h5>${t("stage_sf")}</h5><p>${t("sf")}</p></div>
-    <div class="stage reveal"><h5>${t("stage_3rd")}</h5><p>${t("third")}</p></div>
-    <div class="stage final-stage reveal"><h5>🏆 ${t("stage_f")}</h5><p>${t("final")}</p></div>`;
+  $("qfGrid").innerHTML = QF.map(matchHTML).join("");
+  $("sfGrid").innerHTML = SF.map(matchHTML).join("");
+  $("finGrid").innerHTML = FINALS.map(matchHTML).join("");
+  observeReveals();
+}
+
+/* ---------- champions section ---------- */
+function renderChampions() {
+  $("finalFactCards").innerHTML = FINAL_FACTS.map(cardHTML).join("");
+  $("awardCards").innerHTML = AWARDS.map((a) => {
+    const [h, p] = a[LANG];
+    return `<div class="card award ${a.medal} reveal"><span class="icon">${a.icon}</span><h4>${h}</h4><p>${p}</p></div>`;
+  }).join("");
+  const rows = RANKING.map(
+    (r) => `<tr class="${r.pos === 1 ? "champion-row" : ""}">
+      <td class="pos">${r.pos === 1 ? "🥇" : r.pos === 2 ? "🥈" : r.pos === 3 ? "🥉" : r.pos}</td>
+      <td class="tm">${flag(TEAMS[r.team].flag, 20)} ${tName(r.team)}</td>
+      <td>${r.w}-${r.dr}-${r.l}</td>
+      <td>${r.gf}:${r.ga}</td></tr>`
+  ).join("");
+  $("rankTable").innerHTML = `<thead><tr><th>${t("th_pos")}</th><th>${t("th_team")}</th><th>${t("th_wdl")}</th><th>${t("th_goals")}</th></tr></thead><tbody>${rows}</tbody>`;
   observeReveals();
 }
 
@@ -191,8 +210,8 @@ function renderRecords() {
       <h4 style="font-size:24px;color:var(--gold)">${s.big}</h4><p>${s[LANG]}</p></div>`
   ).join("");
   $("scorerList").innerHTML = SCORERS.map(
-    (s) => `<div class="scorer reveal">${flag(TEAMS[s.team].flag, 40)}
-      <div><div class="sn">${s.name}</div><div class="st">${tName(s.team)}</div></div>
+    (s) => `<div class="scorer medal-${s.medal} reveal">${flag(TEAMS[s.team].flag, 40)}
+      <div><div class="sn">${s.name}</div><div class="st">${tName(s.team)} · ${s.sub[LANG]}</div></div>
       <div class="sg">${s.goals}<small>${t("goals")}</small></div></div>`
   ).join("");
   const rows = I18N[LANG].pz_rows
@@ -214,25 +233,6 @@ function renderCulture() {
   $("cultureCards").innerHTML = CULTURE.map(cardHTML).join("");
   observeReveals();
 }
-
-/* ---------- countdown to the final (July 19, 2026, 3 pm ET) ---------- */
-const FINAL_TS = Date.UTC(2026, 6, 19, 19, 0, 0);
-function tick() {
-  let diff = FINAL_TS - Date.now();
-  if (diff <= 0) {
-    $("countdown").innerHTML = `<p class="cd-label" style="font-size:20px;color:var(--gold)">🏆 ${t("cd_over")}</p>`;
-    return;
-  }
-  const d = Math.floor(diff / 864e5);
-  const h = Math.floor((diff % 864e5) / 36e5);
-  const m = Math.floor((diff % 36e5) / 6e4);
-  const s = Math.floor((diff % 6e4) / 1e3);
-  $("cdD").textContent = d;
-  $("cdH").textContent = String(h).padStart(2, "0");
-  $("cdM").textContent = String(m).padStart(2, "0");
-  $("cdS").textContent = String(s).padStart(2, "0");
-}
-setInterval(tick, 1000);
 
 /* ---------- scroll reveal (staggered) ---------- */
 const io = new IntersectionObserver(
@@ -292,6 +292,7 @@ function renderAll() {
   renderTeams();
   renderGroups();
   renderKnockout();
+  renderChampions();
   renderRecords();
   renderCulture();
 }
@@ -300,5 +301,4 @@ $("teamSearch").addEventListener("input", (e) => {
   renderTeams();
 });
 setLang(LANG);
-tick();
 countUp();

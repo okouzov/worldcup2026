@@ -5,16 +5,15 @@
 const I18N = {
   en: {
     nav_overview:"Overview", nav_venues:"Venues", nav_teams:"Teams", nav_groups:"Groups",
-    nav_knockout:"Knockout", nav_records:"Records", nav_culture:"Culture",
+    nav_knockout:"Knockout", nav_final:"The Final", nav_records:"Records", nav_culture:"Culture",
     hero_kicker:"CANADA · MEXICO · UNITED STATES &nbsp;|&nbsp; JUNE 11 – JULY 19, 2026",
     hero_title:"FIFA WORLD CUP 26",
-    hero_sub:"48 teams. 3 nations. 104 matches. The biggest World Cup ever played — and the first shared by an entire continent.",
+    hero_sub:"48 teams. 104 matches. 308 goals. The biggest World Cup ever played — and Spain conquered it all.",
+    hb_label:"WORLD CHAMPIONS", hb_team:"SPAIN", hb_score:"Spain 1–0 Argentina · after extra time · July 19, MetLife Stadium",
     host_ca:"Canada", host_mx:"Mexico", host_us:"USA",
     sk_overview:"THE TOURNAMENT", sk_venues:"16 STADIUMS · 3 NATIONS", sk_teams:"A RECORD FIELD",
     sk_groups:"JUNE 11 – 27", sk_knockout:"32 TEAMS · ONE TROPHY", sk_records:"HISTORY IN THE MAKING", sk_culture:"BEYOND THE PITCH",
-    cd_label:"Countdown to the Final — July 19, MetLife Stadium, New York / New Jersey",
-    cd_days:"days", cd_hours:"hours", cd_min:"min", cd_sec:"sec", cd_over:"The Final has kicked off!",
-    hs_teams:"teams", hs_hosts:"host nations", hs_cities:"host cities", hs_matches:"matches",
+    hs_teams:"teams", hs_goals:"goals", hs_cities:"host cities", hs_matches:"matches",
     ov_title:"Tournament Overview",
     ov_lead:"The 2026 FIFA World Cup is the 23rd edition of the world's biggest football tournament — and the biggest ever. For the first time it features 48 national teams, is staged by three host nations, and spans 104 matches in 16 cities across North America. Argentina arrived as defending champion; the final will be played on July 19 at MetLife Stadium.",
     ov_format:"Competition format",
@@ -26,25 +25,29 @@ const I18N = {
     te_title:"The 48 Teams",
     te_lead:"A record 48 teams qualified: 16 from Europe (UEFA), 10 from Africa (CAF), 9 from Asia (AFC), 6 from both CONCACAF and South America (CONMEBOL) and 1 from Oceania (OFC). Cape Verde, Curaçao, Jordan and Uzbekistan made their debuts, while four-time champion Italy missed a third consecutive World Cup.",
     te_search:"Search a team…",
-    leg_host:"host", leg_deb:"debutant", leg_champ:"defending champion",
+    leg_host:"host", leg_deb:"debutant", leg_champ:"world champion 2026", leg_fin:"runner-up",
     gr_title:"Group Stage",
     gr_lead:"Every group's final table and all 72 group-stage results (June 11–27). Tap “Matches” on any group to see its results.",
     gr_leg1:"Advanced (top two)", gr_leg2:"Advanced as best third", gr_leg3:"Eliminated",
     gm_show:"⚽ Matches", gm_hide:"▲ Hide matches",
     th_team:"Team", th_p:"P", th_w:"W", th_d:"D", th_l:"L", th_gd:"GD", th_pts:"Pts",
     ko_title:"Knockout Stage",
-    ko_lead:"32 teams entered the first-ever World Cup Round of 32 on June 28. The bracket runs to the final at MetLife Stadium on July 19.",
-    ko_note:"⚡ The tournament is underway — results below are complete through July 4, 2026. For matches after that date, check the live Wikipedia article linked in the footer.",
-    ko_r32:"Round of 32 <small>(June 28 – July 3)</small>", ko_r16:"Round of 16 <small>(July 4 – 7)</small>", ko_next:"The road to the Final",
+    ko_lead:"32 teams entered the first-ever World Cup Round of 32 on June 28. Twenty-two days and 32 knockout matches later, Spain lifted the trophy at MetLife Stadium.",
+    ko_note:"✅ The tournament is complete — all 104 matches played. Full results below.",
+    ko_r32:"Round of 32 <small>(June 28 – July 3)</small>", ko_r16:"Round of 16 <small>(July 4 – 7)</small>",
+    ko_qf:"Quarter-finals <small>(July 9 – 11)</small>", ko_sf:"Semi-finals <small>(July 14 – 15)</small>",
+    ko_fin:"The medal matches <small>(July 18 – 19)</small>",
     aet:"after extra time", pens:"pens", scheduled:"Scheduled", played:"FT",
-    stage_qf:"Quarter-finals", stage_sf:"Semi-finals", stage_3rd:"Third place", stage_f:"Final",
-    qf1:"Morocco vs France — July 9, Foxborough",
-    qf_rest:"Remaining quarter-finals (July 10–11) pair the winners of the last six Round-of-16 ties, in Inglewood, Miami Gardens and Kansas City.",
-    sf:"July 14 — AT&T Stadium, Arlington · July 15 — Mercedes-Benz Stadium, Atlanta",
-    third:"July 18 — Hard Rock Stadium, Miami Gardens",
-    final:"July 19 — MetLife Stadium, New York / New Jersey, with a first-ever Super-Bowl-style halftime show",
+    sk_final:"JULY 19 · METLIFE STADIUM · 80,663 FANS",
+    ch_title:"Spain — World Champions",
+    ch_lead:"Spain beat defending champion Argentina 1–0 after extra time to win their second World Cup, sixteen years after their first. La Roja went unbeaten through all eight matches (7 wins, 1 draw), scored 14 and conceded exactly one goal all tournament — statistically the most dominant championship run in World Cup history.",
+    ch_photo_cap:"Spanish fans take over SoFi Stadium during the quarter-final against Belgium (photo: Wikimedia Commons, CC0)",
+    ch_facts:"How the final was won",
+    aw_title:"Individual awards",
+    rk_title:"Final ranking — top 8",
+    th_pos:"#", th_wdl:"W-D-L", th_goals:"Goals",
     re_title:"Stats, Records & Prize Money",
-    re_scorers:"Top goalscorers <small>(as of July 4, 2026)</small>", goals:"goals",
+    re_scorers:"Top goalscorers <small>(final)</small>", goals:"goals",
     re_prize:"Prize money — record $871 million pool",
     pz_pos:"Finishing position", pz_amount:"Per team",
     pz_rows:[["Champions","$50M"],["Runners-up","$33M"],["Third place","$29M"],["Fourth place","$27M"],
@@ -54,21 +57,20 @@ const I18N = {
     cu_title:"Symbols, Marketing & Culture",
     ft_source:"Content based on the Wikipedia article “2026 FIFA World Cup” (CC BY-SA 4.0). This is an unofficial fan project, not affiliated with FIFA.",
     ft_link:"Read the full, live-updated article on Wikipedia →",
-    ft_data:"Results and statistics as of July 5, 2026.",
+    ft_data:"Final results — the tournament ended on July 19, 2026 with Spain as champions.",
     ft_photos:"Stadium photography: Wikimedia Commons (free licenses) · Flags: flagcdn.com"
   },
   bg: {
     nav_overview:"Преглед", nav_venues:"Стадиони", nav_teams:"Отбори", nav_groups:"Групи",
-    nav_knockout:"Елиминации", nav_records:"Рекорди", nav_culture:"Култура",
+    nav_knockout:"Елиминации", nav_final:"Финалът", nav_records:"Рекорди", nav_culture:"Култура",
     hero_kicker:"КАНАДА · МЕКСИКО · САЩ &nbsp;|&nbsp; 11 ЮНИ – 19 ЮЛИ 2026",
     hero_title:"СВЕТОВНО ПЪРВЕНСТВО 26",
-    hero_sub:"48 отбора. 3 държави. 104 мача. Най-мащабният Мондиал, игран някога — и първият, споделен от цял континент.",
+    hero_sub:"48 отбора. 104 мача. 308 гола. Най-мащабният Мондиал, игран някога — и Испания покори всичко.",
+    hb_label:"СВЕТОВЕН ШАМПИОН", hb_team:"ИСПАНИЯ", hb_score:"Испания 1:0 Аржентина · след продължения · 19 юли, стадион „Метлайф“",
     host_ca:"Канада", host_mx:"Мексико", host_us:"САЩ",
     sk_overview:"ТУРНИРЪТ", sk_venues:"16 СТАДИОНА · 3 ДЪРЖАВИ", sk_teams:"РЕКОРДЕН БРОЙ УЧАСТНИЦИ",
     sk_groups:"11 – 27 ЮНИ", sk_knockout:"32 ОТБОРА · ЕДИН ТРОФЕЙ", sk_records:"ИСТОРИЯ В РЕАЛНО ВРЕМЕ", sk_culture:"ОТВЪД ТЕРЕНА",
-    cd_label:"Обратно броене до финала — 19 юли, стадион „Метлайф“, Ню Йорк / Ню Джърси",
-    cd_days:"дни", cd_hours:"часа", cd_min:"мин", cd_sec:"сек", cd_over:"Финалът започна!",
-    hs_teams:"отбора", hs_hosts:"държави домакини", hs_cities:"града домакини", hs_matches:"мача",
+    hs_teams:"отбора", hs_goals:"гола", hs_cities:"града домакини", hs_matches:"мача",
     ov_title:"Преглед на турнира",
     ov_lead:"Световното първенство по футбол 2026 е 23-тото издание на най-големия футболен форум — и най-мащабното досега. За първи път участват 48 национални отбора, домакини са три държави, а програмата включва 104 мача в 16 града в Северна Америка. Аржентина пристигна като действащ шампион; финалът е на 19 юли на стадион „Метлайф“.",
     ov_format:"Формат на турнира",
@@ -80,25 +82,29 @@ const I18N = {
     te_title:"48-те отбора",
     te_lead:"Рекордните 48 отбора се класираха: 16 от Европа (УЕФА), 10 от Африка (КАФ), 9 от Азия (АФК), по 6 от КОНКАКАФ и Южна Америка (КОНМЕБОЛ) и 1 от Океания (ОФК). Кабо Верде, Кюрасао, Йордания и Узбекистан дебютираха, а четирикратният шампион Италия пропусна трети пореден Мондиал.",
     te_search:"Търси отбор…",
-    leg_host:"домакин", leg_deb:"дебютант", leg_champ:"действащ шампион",
+    leg_host:"домакин", leg_deb:"дебютант", leg_champ:"световен шампион 2026", leg_fin:"финалист",
     gr_title:"Групова фаза",
     gr_lead:"Крайното класиране във всяка група и всичките 72 резултата от груповата фаза (11–27 юни). Натиснете „Мачове“ на която и да е група, за да видите резултатите ѝ.",
     gr_leg1:"Класирани (първите два)", gr_leg2:"Класирани като най-добри трети", gr_leg3:"Отпаднали",
     gm_show:"⚽ Мачове", gm_hide:"▲ Скрий мачовете",
     th_team:"Отбор", th_p:"М", th_w:"П", th_d:"Р", th_l:"З", th_gd:"ГР", th_pts:"Т",
     ko_title:"Елиминационна фаза",
-    ko_lead:"32 отбора влязоха в първия в историята кръг от 32 отбора на 28 юни. Схемата води до финала на стадион „Метлайф“ на 19 юли.",
-    ko_note:"⚡ Турнирът тече в момента — резултатите по-долу са пълни до 4 юли 2026 г. За мачовете след тази дата вижте актуалната статия в Уикипедия (връзка в долния колонтитул).",
-    ko_r32:"Кръг от 32 (1/16-финали) <small>(28 юни – 3 юли)</small>", ko_r16:"Осминафинали (1/8) <small>(4 – 7 юли)</small>", ko_next:"Пътят към финала",
+    ko_lead:"32 отбора влязоха в първия в историята кръг от 32 на 28 юни. Двадесет и два дни и 32 елиминационни мача по-късно Испания вдигна купата на стадион „Метлайф“.",
+    ko_note:"✅ Турнирът приключи — изиграни са всичките 104 мача. Пълните резултати са по-долу.",
+    ko_r32:"Кръг от 32 (1/16-финали) <small>(28 юни – 3 юли)</small>", ko_r16:"Осминафинали (1/8) <small>(4 – 7 юли)</small>",
+    ko_qf:"Четвъртфинали <small>(9 – 11 юли)</small>", ko_sf:"Полуфинали <small>(14 – 15 юли)</small>",
+    ko_fin:"Мачовете за медалите <small>(18 – 19 юли)</small>",
     aet:"след продължения", pens:"дузпи", scheduled:"Предстои", played:"Край",
-    stage_qf:"Четвъртфинали", stage_sf:"Полуфинали", stage_3rd:"Мач за 3-то място", stage_f:"Финал",
-    qf1:"Мароко срещу Франция — 9 юли, Фоксбъро",
-    qf_rest:"Останалите четвъртфинали (10–11 юли) събират победителите от последните шест осминафинала — в Ингълуд, Маями Гардънс и Канзас Сити.",
-    sf:"14 юли — „AT&T Стейдиъм“, Арлингтън · 15 юли — „Мерцедес-Бенц Стейдиъм“, Атланта",
-    third:"18 юли — „Хард Рок Стейдиъм“, Маями Гардънс",
-    final:"19 юли — стадион „Метлайф“, Ню Йорк / Ню Джърси, с първото в историята шоу на полувремето в стил Супербоул",
+    sk_final:"19 ЮЛИ · СТАДИОН „МЕТЛАЙФ“ · 80 663 ЗРИТЕЛИ",
+    ch_title:"Испания — световен шампион",
+    ch_lead:"Испания победи действащия шампион Аржентина с 1:0 след продължения и спечели втората си световна титла — шестнадесет години след първата. „Ла Роха“ премина без загуба през всичките осем мача (7 победи, 1 равенство), отбеляза 14 гола и допусна само един за целия турнир — статистически най-доминиращият шампионски поход в историята на Мондиалите.",
+    ch_photo_cap:"Испанските фенове превземат „СоФай Стейдиъм“ на четвъртфинала срещу Белгия (снимка: Wikimedia Commons, CC0)",
+    ch_facts:"Как бе спечелен финалът",
+    aw_title:"Индивидуални награди",
+    rk_title:"Крайно класиране — топ 8",
+    th_pos:"#", th_wdl:"П-Р-З", th_goals:"Голове",
     re_title:"Статистика, рекорди и премии",
-    re_scorers:"Голмайстори <small>(към 4 юли 2026 г.)</small>", goals:"гола",
+    re_scorers:"Голмайстори <small>(финално)</small>", goals:"гола",
     re_prize:"Премии — рекорден фонд от 871 млн. долара",
     pz_pos:"Класиране", pz_amount:"На отбор",
     pz_rows:[["Шампион","$50 млн."],["Финалист","$33 млн."],["Трето място","$29 млн."],["Четвърто място","$27 млн."],
@@ -108,7 +114,7 @@ const I18N = {
     cu_title:"Символи, маркетинг и култура",
     ft_source:"Съдържанието се основава на статията „2026 FIFA World Cup“ в Уикипедия (CC BY-SA 4.0). Това е неофициален фен проект, несвързан с ФИФА.",
     ft_link:"Прочетете пълната, актуализирана статия в Уикипедия →",
-    ft_data:"Резултатите и статистиката са към 5 юли 2026 г.",
+    ft_data:"Крайни резултати — турнирът завърши на 19 юли 2026 г. с Испания като шампион.",
     ft_photos:"Снимки на стадионите: Wikimedia Commons (свободни лицензи) · Знамена: flagcdn.com"
   }
 };
@@ -158,7 +164,7 @@ const TEAMS = {
   EGY:{en:"Egypt", bg:"Египет", flag:"eg", conf:"CAF"},
   IRN:{en:"Iran", bg:"Иран", flag:"ir", conf:"AFC"},
   NZL:{en:"New Zealand", bg:"Нова Зеландия", flag:"nz", conf:"OFC"},
-  ESP:{en:"Spain", bg:"Испания", flag:"es", conf:"UEFA"},
+  ESP:{en:"Spain", bg:"Испания", flag:"es", conf:"UEFA", badges:["champ"]},
   CPV:{en:"Cape Verde", bg:"Кабо Верде", flag:"cv", conf:"CAF", badges:["deb"]},
   URU:{en:"Uruguay", bg:"Уругвай", flag:"uy", conf:"CONMEBOL"},
   KSA:{en:"Saudi Arabia", bg:"Саудитска Арабия", flag:"sa", conf:"AFC"},
@@ -166,7 +172,7 @@ const TEAMS = {
   NOR:{en:"Norway", bg:"Норвегия", flag:"no", conf:"UEFA"},
   SEN:{en:"Senegal", bg:"Сенегал", flag:"sn", conf:"CAF"},
   IRQ:{en:"Iraq", bg:"Ирак", flag:"iq", conf:"AFC"},
-  ARG:{en:"Argentina", bg:"Аржентина", flag:"ar", conf:"CONMEBOL", badges:["champ"]},
+  ARG:{en:"Argentina", bg:"Аржентина", flag:"ar", conf:"CONMEBOL", badges:["fin"]},
   AUT:{en:"Austria", bg:"Австрия", flag:"at", conf:"UEFA"},
   ALG:{en:"Algeria", bg:"Алжир", flag:"dz", conf:"CAF"},
   JOR:{en:"Jordan", bg:"Йордания", flag:"jo", conf:"AFC", badges:["deb"]},
@@ -276,12 +282,66 @@ const R32 = [
 const R16 = [
   {t1:"CAN",s1:0,t2:"MAR",s2:3,m:7,d:4,v:"nrg",win:"MAR"},
   {t1:"PAR",s1:0,t2:"FRA",s2:1,m:7,d:4,v:"lin",win:"FRA"},
-  {t1:"BRA",t2:"NOR",m:7,d:5,v:"met"},
-  {t1:"MEX",t2:"ENG",m:7,d:5,v:"azt"},
-  {t1:"POR",t2:"ESP",m:7,d:6,v:"att"},
-  {t1:"USA",t2:"BEL",m:7,d:6,v:"lum"},
-  {t1:"ARG",t2:"EGY",m:7,d:7,v:"mb"},
-  {t1:"SUI",t2:"COL",m:7,d:7,v:"bc"}
+  {t1:"BRA",s1:1,t2:"NOR",s2:2,m:7,d:5,v:"met",win:"NOR"},
+  {t1:"MEX",s1:2,t2:"ENG",s2:3,m:7,d:5,v:"azt",win:"ENG"},
+  {t1:"POR",s1:0,t2:"ESP",s2:1,m:7,d:6,v:"att",win:"ESP"},
+  {t1:"USA",s1:1,t2:"BEL",s2:4,m:7,d:6,v:"lum",win:"BEL"},
+  {t1:"ARG",s1:3,t2:"EGY",s2:2,m:7,d:7,v:"mb",win:"ARG"},
+  {t1:"SUI",s1:0,t2:"COL",s2:0,m:7,d:7,v:"bc",win:"SUI",note:{en:"a.e.t. — Switzerland win 4–3 on penalties",bg:"след прод. — Швейцария печели с 4:3 при дузпите"}}
+];
+
+const QF = [
+  {t1:"FRA",s1:2,t2:"MAR",s2:0,m:7,d:9,v:"gil",win:"FRA"},
+  {t1:"ESP",s1:2,t2:"BEL",s2:1,m:7,d:10,v:"sofi",win:"ESP"},
+  {t1:"NOR",s1:1,t2:"ENG",s2:2,m:7,d:11,v:"hard",win:"ENG",note:{en:"after extra time",bg:"след продължения"}},
+  {t1:"ARG",s1:3,t2:"SUI",s2:1,m:7,d:11,v:"arr",win:"ARG",note:{en:"after extra time",bg:"след продължения"}}
+];
+
+const SF = [
+  {t1:"FRA",s1:0,t2:"ESP",s2:2,m:7,d:14,v:"att",win:"ESP"},
+  {t1:"ENG",s1:1,t2:"ARG",s2:2,m:7,d:15,v:"mb",win:"ARG"}
+];
+
+const FINALS = [
+  {t1:"FRA",s1:4,t2:"ENG",s2:6,m:7,d:18,v:"hard",win:"ENG",
+   note:{en:"Third place — Saka scores a hat-trick in a 10-goal thriller",bg:"Мач за 3-то място — хеттрик на Сака в трилър с 10 гола"}},
+  {t1:"ESP",s1:1,t2:"ARG",s2:0,m:7,d:19,v:"met",win:"ESP",final:true,
+   note:{en:"THE FINAL · a.e.t. — Ferran Torres 106'",bg:"ФИНАЛ · след прод. — Феран Торес (106')"}}
+];
+
+/* --- final ranking (top 8) --- */
+const RANKING = [
+  {pos:1,team:"ESP",w:7,dr:1,l:0,gf:14,ga:1},
+  {pos:2,team:"ARG",w:7,dr:0,l:1,gf:19,ga:8},
+  {pos:3,team:"ENG",w:6,dr:1,l:1,gf:20,ga:12},
+  {pos:4,team:"FRA",w:6,dr:0,l:2,gf:20,ga:10},
+  {pos:5,team:"NOR",w:4,dr:0,l:2,gf:13,ga:11},
+  {pos:6,team:"BEL",w:3,dr:2,l:1,gf:14,ga:7},
+  {pos:7,team:"MAR",w:3,dr:2,l:1,gf:10,ga:6},
+  {pos:8,team:"SUI",w:3,dr:2,l:1,gf:10,ga:6}
+];
+
+/* --- individual awards --- */
+const AWARDS = [
+  {icon:"🏅", medal:"gold", en:["Golden Ball","Rodri (Spain) — best player of the tournament"], bg:["Златна топка","Родри (Испания) — най-добър играч на турнира"]},
+  {icon:"⚽", medal:"gold", en:["Golden Boot","Kylian Mbappé (France) — 10 goals, the first to reach ten in one World Cup since Gerd Müller in 1970"], bg:["Златна обувка","Килиан Мбапе (Франция) — 10 гола, първият с десет на един Мондиал след Герд Мюлер през 1970 г."]},
+  {icon:"🧤", medal:"gold", en:["Golden Glove","Unai Simón (Spain) — best goalkeeper, just 1 goal conceded in 8 matches"], bg:["Златна ръкавица","Унай Симон (Испания) — най-добър вратар, само 1 допуснат гол в 8 мача"]},
+  {icon:"🥈", medal:"silver", en:["Silver Ball & Silver Boot","Lionel Messi (Argentina) — 8 goals and 4 assists at age 39"], bg:["Сребърна топка и обувка","Лионел Меси (Аржентина) — 8 гола и 4 асистенции на 39 години"]},
+  {icon:"🥉", medal:"bronze", en:["Bronze Ball","Kylian Mbappé (France) · Bronze Boot: Jude Bellingham (England, 7 goals)"], bg:["Бронзова топка","Килиан Мбапе (Франция) · Бронзова обувка: Джуд Белингам (Англия, 7 гола)"]},
+  {icon:"🌟", medal:"gold", en:["Best Young Player","Pau Cubarsí (Spain)"], bg:["Най-добър млад играч","Пау Кубарси (Испания)"]},
+  {icon:"🤝", medal:"silver", en:["Fair Play Trophy","Netherlands — best disciplinary record among knockout teams"], bg:["Награда за феърплей","Нидерландия — най-чисто досие сред отборите в елиминациите"]}
+];
+
+/* --- facts about the final --- */
+const FINAL_FACTS = [
+  {icon:"⚽", en:["The decisive goal","Ferran Torres struck in the 106th minute of extra time and was named Man of the Match."],
+              bg:["Решителният гол","Феран Торес се разписа в 106-ата минута на продълженията и бе избран за играч на мача."]},
+  {icon:"🧤", en:["Martínez's record night","Argentina's Emiliano Martínez made 11 saves — the most ever in a World Cup final."],
+              bg:["Рекордната вечер на Мартинес","Емилиано Мартинес от Аржентина направи 11 спасявания — най-много във финал на Мондиал в историята."]},
+  {icon:"🏟️", en:["The stage","80,663 fans at MetLife Stadium; Slovenia's Slavko Vinčić refereed. The trophy was presented by the U.S. president, and the champions received rings, NBA-style."],
+              bg:["Сцената","80 663 зрители на „Метлайф“; съдия бе словенецът Славко Винчич. Купата бе връчена от президента на САЩ, а шампионите получиха и шампионски пръстени в стил НБА."]},
+  {icon:"🎤", en:["A controversial show","The first-ever World Cup final halftime show (Madonna, Shakira, BTS) ran 27 minutes and drew criticism for stretching the break far beyond the usual 15."],
+              bg:["Спорното шоу","Първото в историята шоу на полувремето на финал (Мадона, Шакира, BTS) продължи 27 минути и предизвика критики, че разтегна почивката далеч отвъд обичайните 15."]}
 ];
 
 /* --- overview fact cards --- */
@@ -296,8 +356,8 @@ const FACTS = [
               bg:["Отново без Италия","Четирикратният шампион Италия стана първият бивш победител, пропуснал три поредни световни първенства."]},
   {icon:"↩️", en:["Long-awaited returns","DR Congo and Haiti returned after 1974, Iraq after 1986, and Austria, Norway and Scotland after 1998."],
               bg:["Дългоочаквани завръщания","ДР Конго и Хаити се завърнаха след 1974 г., Ирак — след 1986 г., а Австрия, Норвегия и Шотландия — след 1998 г."]},
-  {icon:"🏆", en:["Argentina defends","La Albiceleste arrived as defending champion after winning Qatar 2022, chasing a fourth star."],
-              bg:["Аржентина защитава титлата","„Албиселесте“ пристигна като действащ шампион след триумфа в Катар 2022 в преследване на четвърта звезда."]}
+  {icon:"🏆", en:["Argentina's near miss","Defending champion Argentina reached the final chasing a fourth star — and fell to a single extra-time goal."],
+              bg:["Аржентина на крачка от върха","Действащият шампион Аржентина стигна до финала в преследване на четвърта звезда — и отстъпи с един-единствен гол в продълженията."]}
 ];
 
 /* --- rule changes --- */
@@ -318,15 +378,16 @@ const RULES = [
 
 /* --- stats cards --- */
 const STATS = [
-  {icon:"⚽", big:"261", en:"goals in 90 matches so far — 2.9 per game", bg:"гола в 90 мача досега — по 2,9 на мач"},
-  {icon:"🎟️", big:"5 839 787", en:"total attendance — about 64,887 per match", bg:"обща посещаемост — около 64 887 на мач"},
-  {icon:"🥇", big:"№1", en:"On June 25 the tournament broke the all-time World Cup attendance record, passing USA '94", bg:"На 25 юни турнирът подобри вечния рекорд за посещаемост на Мондиал, задминавайки САЩ '94"},
-  {icon:"📅", big:"90 / 104", en:"matches completed through July 4, 2026", bg:"изиграни мача към 4 юли 2026 г."}
+  {icon:"⚽", big:"308", en:"goals in 104 matches — 2.96 per game", bg:"гола в 104 мача — по 2,96 на мач"},
+  {icon:"🎟️", big:"~7 000 000", en:"total attendance — an all-time World Cup record, surpassing USA '94", bg:"обща посещаемост — вечен рекорд за Мондиал, задминал САЩ '94"},
+  {icon:"🎩", big:"4", en:"hat-tricks: Messi (vs Algeria), Jonathan David (vs Qatar), Dembélé (vs Norway) and Saka (in the third-place match)", bg:"хеттрика: Меси (срещу Алжир), Джонатан Дейвид (срещу Катар), Дембеле (срещу Норвегия) и Сака (в мача за 3-то място)"},
+  {icon:"🟥", big:"№1", en:"more red cards than the previous two World Cups combined — the strictest tournament in memory", bg:"повече червени картони от предишните два Мондиала взети заедно — най-строгият турнир в историята"}
 ];
 
 const SCORERS = [
-  {name:"Lionel Messi", team:"ARG", goals:7},
-  {name:"Kylian Mbappé", team:"FRA", goals:7}
+  {name:"Kylian Mbappé", team:"FRA", goals:10, medal:"gold", sub:{en:"Golden Boot · 4 assists", bg:"Златна обувка · 4 асистенции"}},
+  {name:"Lionel Messi", team:"ARG", goals:8, medal:"silver", sub:{en:"Silver Boot · 4 assists", bg:"Сребърна обувка · 4 асистенции"}},
+  {name:"Jude Bellingham", team:"ENG", goals:7, medal:"bronze", sub:{en:"Bronze Boot · 1 assist", bg:"Бронзова обувка · 1 асистенция"}}
 ];
 
 /* --- mascots --- */
